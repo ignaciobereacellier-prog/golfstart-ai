@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GolfStart AI</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="data/respuestas.js" defer></script>
+  <script src="data/guia.js" defer></script>
+  <script src="data/niveles.js" defer></script>
+  <script src="data/amigos.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <main id="contenido" class="contenido">
+    <section id="inicio" aria-labelledby="titulo-inicio">
+      <h1 id="titulo-inicio" tabindex="-1">Inicio</h1>
+      <p>¡Hola! Vamos con tus primeros pasos en el golf.</p>
+      <p class="aviso-prototipo">Prototipo: respuestas de ejemplo</p>
+      <div class="chat" aria-label="Chat de iniciación al golf">
+        <div id="mensajes" class="mensajes" role="log" aria-label="Conversación" aria-live="polite" aria-relevant="additions"></div>
+        <form id="formulario-chat" class="formulario-chat">
+          <label for="pregunta">¿Qué quieres aprender hoy?</label>
+          <div class="entrada-chat">
+            <input id="pregunta" name="pregunta" type="text" maxlength="500" placeholder="Escribe tu pregunta…" required>
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+      <button id="ver-preguntas" class="ver-preguntas" type="button" aria-controls="preguntas-rapidas" aria-expanded="true" hidden>Ver otras preguntas</button>
+      <h2 id="titulo-preguntas">Preguntas frecuentes</h2>
+      <div id="preguntas-rapidas" class="preguntas-rapidas" aria-labelledby="titulo-preguntas"></div>
+      <section class="robot-golf" aria-labelledby="titulo-robot">
+        <h2 id="titulo-robot">El swing perfecto</h2>
+        <p>El swing es el movimiento del palo para golpear la bola.</p>
+        <figure>
+            <video id="video-swing" class="video-swing" controls playsinline preload="metadata" aria-label="Vídeo de un swing de golf">
+              <source src="videos/swing-golf.mov">
+              Tu navegador no puede reproducir este vídeo. <a href="videos/swing-golf.mov">Abrir el vídeo del swing</a>.
+            </video>
+            <figcaption>Observa el movimiento del swing. Puedes pausarlo con los controles del vídeo.</figcaption>
+          </figure>
+      </section>
+    </section>
+    <section id="guia" aria-labelledby="titulo-guia" hidden>
+      <h1 id="titulo-guia" tabindex="-1">Guía</h1>
+      <div id="tarjetas-guia" class="tarjetas-guia" aria-label="Apartados de la guía"></div>
+      <article id="detalle-guia" class="detalle-guia" aria-labelledby="titulo-apartado" hidden>
+        <button id="volver-guia" class="boton-guia" type="button">Volver a los apartados</button>
+        <h2 id="titulo-apartado" tabindex="-1"></h2>
+        <ul id="puntos-guia"></ul>
+        <dl id="glosario-guia"></dl>
+        <button id="preguntar-guia" class="boton-guia boton-guia-principal" type="button">Pregúntale a GolfStart</button>
+      </article>
+    </section>
+    <section id="niveles" aria-labelledby="titulo-niveles" hidden>
+      <h1 id="titulo-niveles" tabindex="-1">Niveles</h1>
+      <p>Progreso de ejemplo: los botones simulan actividades y suman puntos en esta demo.</p>
+      <div class="resumen-progreso">
+        <p id="resumen-nivel" role="status"></p>
+        <label id="etiqueta-progreso" for="progreso-nivel"></label>
+        <progress id="progreso-nivel" max="100" value="45"></progress>
+        <p id="siguiente-nivel"></p>
+      </div>
+      <ol id="lista-niveles" class="lista-niveles"></ol>
+      <h2>Insignias conseguidas</h2>
+      <p>Reconocen etapas de la demo; no certifican tu habilidad jugando al golf.</p>
+      <ul id="insignias" class="insignias"></ul>
+      <h2>Prueba tu progreso</h2>
+      <div id="acciones-progreso" class="acciones-progreso"></div>
+      <p id="aviso-guardado" role="status"></p>
+      <button id="reiniciar-demo" class="reiniciar-demo" type="button">Reiniciar demo</button>
+    </section>
+    <section id="amigos" aria-labelledby="titulo-amigos" hidden>
+      <h1 id="titulo-amigos" tabindex="-1">Amigos</h1>
+      <p>Clasificación de ejemplo con amigos ficticios y tus puntos de la demo.</p>
+      <h2>Clasificación</h2>
+      <ol id="clasificacion" class="clasificacion" aria-label="Clasificación por puntos"></ol>
+      <p id="mensaje-constancia" class="mensaje-constancia"></p>
+      <h2>Retos semanales</h2>
+      <p>Progreso de ejemplo: estos retos no registran actividades reales ni cambian al sumar puntos en Niveles.</p>
+      <div id="retos-semanales" class="retos-semanales"></div>
+    </section>
+  </main>
+
+  <nav class="navegacion" aria-label="Navegación principal">
+    <p class="marca-lateral">GolfStart AI</p>
+    <div class="pestanas">
+      <button type="button" data-pantalla="inicio" aria-controls="inicio" aria-current="page">Inicio</button>
+      <button type="button" data-pantalla="guia" aria-controls="guia">Guía</button>
+      <button type="button" data-pantalla="niveles" aria-controls="niveles">Niveles</button>
+      <button type="button" data-pantalla="amigos" aria-controls="amigos">Amigos</button>
+    </div>
+  </nav>
+</body>
+</html>

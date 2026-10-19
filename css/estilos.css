@@ -1,0 +1,194 @@
+:root {
+  --color-principal: #1B5E3B;
+  --color-fondo: #F7F5EF;
+  --color-superficie: #DDEFE3;
+  --color-acento: #F2B705;
+  --color-texto: #1E1E1E;
+  --color-sobre-principal: #FFFFFF;
+  --tipografia: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ancho-menu: 88px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding-left: var(--ancho-menu);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--tipografia);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.contenido,
+.pestanas {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.contenido { padding: 28px 16px calc(32px + env(safe-area-inset-bottom, 0px)); }
+h1 { margin: 0; font-size: 28px; line-height: 1.25; }
+[hidden] { display: none; }
+
+.navegacion {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: var(--ancho-menu);
+  overflow-y: auto;
+  padding: calc(20px + env(safe-area-inset-top, 0px)) 6px calc(20px + env(safe-area-inset-bottom, 0px));
+  background: var(--color-principal);
+}
+
+.pestanas { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.marca-lateral {
+  margin: 0 0 24px;
+  color: var(--color-sobre-principal);
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.25;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.pestanas button {
+  min-height: 52px;
+  padding: 10px 4px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--color-sobre-principal);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pestanas button[aria-current="page"] {
+  background: var(--color-superficie);
+  color: var(--color-principal);
+}
+
+.pestanas button:hover { border-color: var(--color-superficie); }
+.pestanas button:focus-visible { outline: 3px solid var(--color-acento); outline-offset: 2px; }
+h1:focus { outline: none; }
+
+.aviso-prototipo {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 20px 0 0;
+  padding: 12px 16px;
+  background: var(--color-superficie);
+  color: var(--color-principal);
+  border: 1px solid var(--color-principal);
+  border-radius: 12px;
+  font-weight: 650;
+}
+.chat { margin-top: 16px; }
+.mensajes { max-height: 340px; overflow-y: auto; overflow-wrap: anywhere; }
+.mensaje { margin: 0 0 12px; padding: 16px; border-radius: 16px; }
+.mensaje strong { display: block; margin-bottom: 4px; }
+.mensaje-usuario { margin-left: 20px; background: var(--color-principal); color: var(--color-sobre-principal); }
+.mensaje-asistente { margin-right: 20px; background: var(--color-superficie); }
+.formulario-chat label { display: block; margin-bottom: 8px; font-weight: 600; }
+.entrada-chat { display: flex; gap: 8px; }
+.entrada-chat input {
+  min-width: 0;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-principal);
+  border-radius: 12px;
+  font: inherit;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+.entrada-chat button, .preguntas-rapidas button, .ver-preguntas {
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-principal);
+  border-radius: 12px;
+  font: inherit;
+  cursor: pointer;
+}
+.entrada-chat button { background: var(--color-principal); color: var(--color-sobre-principal); }
+.ver-preguntas { margin-top: 20px; background: var(--color-superficie); color: var(--color-principal); font-weight: 600; }
+h2 { margin: 28px 0 12px; font-size: 20px; }
+.preguntas-rapidas { display: grid; gap: 10px; }
+.preguntas-rapidas[hidden] { display: none; }
+.preguntas-rapidas button { text-align: left; background: var(--color-superficie); color: var(--color-texto); }
+.preguntas-rapidas button:hover { border-width: 2px; padding: 11px 15px; }
+.entrada-chat :focus-visible, .preguntas-rapidas button:focus-visible, .ver-preguntas:focus-visible { outline: 3px solid var(--color-principal); outline-offset: 3px; }
+
+@media (min-width: 768px) {
+  :root { --ancho-menu: 200px; }
+  .navegacion { padding-inline: 16px; }
+  .marca-lateral { font-size: 24px; text-align: left; }
+  .pestanas button { text-align: left; padding-inline: 20px; }
+  .contenido { padding: 48px 24px; }
+}
+
+@media (max-width: 479px) {
+  .entrada-chat { flex-direction: column; }
+  .mensaje-usuario { margin-left: 8px; }
+  .mensaje-asistente { margin-right: 8px; }
+}
+
+.tarjetas-guia { display: grid; gap: 12px; margin-top: 24px; }
+.robot-golf { margin-top: 32px; }
+.robot-golf figure { margin: 0; }
+.robot-golf img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.robot-golf figcaption { margin-top: 8px; font-size: 14px; }
+.video-swing { display: block; width: 100%; max-height: 70vh; background: #1E1E1E; border-radius: 16px; }
+.resumen-progreso { margin-top: 24px; padding: 20px; background: var(--color-superficie); border-radius: 16px; }
+#resumen-nivel { margin-top: 0; font-size: 24px; font-weight: 700; }
+#progreso-nivel { display: block; width: 100%; height: 20px; margin-top: 12px; accent-color: var(--color-principal); }
+.lista-niveles { display: grid; gap: 12px; padding: 0; list-style: none; }
+.lista-niveles li { padding: 16px; border: 1px solid var(--color-principal); border-radius: 16px; }
+.lista-niveles li[aria-current] { background: var(--color-superficie); border-width: 3px; }
+.lista-niveles p { margin: 8px 0 0; }
+.insignias { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+.insignias li { padding: 8px 12px; background: var(--color-acento); color: var(--color-texto); border-radius: 12px; }
+.acciones-progreso { display: grid; gap: 12px; }
+.reiniciar-demo { min-height: 48px; padding: 8px 12px; border: 0; background: transparent; color: var(--color-principal); font: inherit; text-decoration: underline; cursor: pointer; }
+.reiniciar-demo:focus-visible { outline: 3px solid var(--color-principal); outline-offset: 3px; }
+.clasificacion { padding: 0; list-style: none; display: grid; gap: 10px; }
+.clasificacion li { padding: 16px; border: 1px solid var(--color-principal); border-radius: 16px; }
+.clasificacion strong, .clasificacion span { display: block; }
+.clasificacion span { margin-top: 4px; }
+.clasificacion .jugador-propio { border-width: 3px; background: var(--color-superficie); }
+.mensaje-constancia { padding: 16px; background: var(--color-superficie); border-radius: 12px; }
+.retos-semanales { display: grid; gap: 16px; }
+.tarjeta-reto { padding: 20px; border: 1px solid var(--color-principal); border-radius: 16px; }
+.tarjeta-reto h3 { margin: 0 0 12px; font-size: 18px; }
+.tarjeta-reto progress { display: block; width: 100%; height: 20px; margin-top: 12px; accent-color: var(--color-principal); }
+.tarjetas-guia[hidden] { display: none; }
+.tarjeta-guia, .boton-guia {
+  min-height: 52px;
+  padding: 16px;
+  border: 1px solid var(--color-principal);
+  border-radius: 16px;
+  background: var(--color-superficie);
+  color: var(--color-principal);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tarjeta-guia { text-align: left; }
+.tarjeta-guia:hover, .boton-guia:hover { text-decoration: underline; }
+.tarjeta-guia:focus-visible, .boton-guia:focus-visible, #titulo-apartado:focus-visible {
+  outline: 3px solid var(--color-principal);
+  outline-offset: 3px;
+}
+.detalle-guia { margin-top: 24px; }
+.detalle-guia ul { padding-left: 24px; }
+.detalle-guia li { margin-bottom: 16px; }
+.detalle-guia dt { font-weight: 700; color: var(--color-principal); }
+.detalle-guia dd { margin: 4px 0 20px; }
+.boton-guia-principal { margin-top: 16px; background: var(--color-principal); color: var(--color-sobre-principal); }
+
+@media (min-width: 600px) {
+  .tarjetas-guia { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
