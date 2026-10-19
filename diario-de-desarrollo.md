@@ -21,8 +21,8 @@ Registro del proceso de diseño y desarrollo para el trabajo final (capítulo «
 ### Paso 9. Publicación en GitHub (2026-10-19)
 - **Qué se pidió:** subir el proyecto completo y disponer de un enlace público para el PDF.
 - **Qué hizo Codex:** creó el repositorio público ignaciobereacellier-prog/golfstart-ai y preparó todos los archivos, incluida documentación, imagen y vídeo, para GitHub Pages.
-- **Qué falló o hubo que corregir:** fue necesario iniciar sesión en el navegador; publicación en curso.
-- **Decisiones:** conservar las carpetas originales y publicar desde main, raíz. Enlace previsto: https://ignaciobereacellier-prog.github.io/golfstart-ai/.
+- **Qué falló o hubo que corregir:** fue necesario iniciar sesión en el navegador; construcción y despliegue de GitHub Pages completados correctamente.
+- **Decisiones:** conservar las carpetas originales y publicar desde main, raíz. Enlace público verificado: https://ignaciobereacellier-prog.github.io/golfstart-ai/. Se comprobaron Inicio, Guía, Niveles y Amigos.
 - **Qué he aprendido (Ignacio):**
 - **Captura:** pendiente.
 
